@@ -226,3 +226,53 @@ footer {
 .sidebar {
   padding: 36px 0 0 36px;
 }
+
+table {
+    empty-cells: show;
+}
+
+td {
+    padding: 10px;
+}
+
+tr td:nth-of-type(n + 2) {
+    background-color: #ED153E;
+    padding: 10px;
+    border: 1px white solid;
+    color: white;
+}
+
+tr td:nth-of-type(n + 3) {
+    background-color: #FF8813;
+    color: white;
+}
+
+tr td:nth-of-type(n + 4) {
+    background-color: #F9D046;
+    color: white;
+}
+
+tr td:nth-of-type(n + 5) {
+    background-color: #6CAF2A;
+    color: white;
+}
+
+tr td:nth-of-type(n + 6) {
+    background-color: #5DCEE3;
+    color: white;
+}
+
+tr td:nth-of-type(n + 7) {
+    background-color: #18A4EC;
+    color: white;
+}
+
+tr td:nth-of-type(n + 8) {
+    background-color: #7709A5;
+    color: white;
+}
+
+tr td:nth-of-type(n + 9) {
+    background-color: white;
+    color: black;
+}
