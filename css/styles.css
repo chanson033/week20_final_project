@@ -45,17 +45,19 @@ Developer @GA in SF
 /*******************************************/
 
 body {
-     margin: 0;
-     padding: 36px;
+     /*margin: 0;*/
+     padding: 20px;
      font-family: "Lato", sans-serif;
      font-size: 14px;
      line-height: 1.5;
      background-color: #FFF;
-     color: #444;
-     max-width: 900px;
-     border-left: 6px solid #DDD;
+     color: black;
+     /*max-width: 900px;*/
+     /*border-left: 6px solid #DDD;*/
 
 }
+
+/* STYLES FOR LINKS */
 
 a:link {
     text-decoration: none;
@@ -83,18 +85,9 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
      font-size: 36px;
      font-weight: normal;
-}
-
-h1 a {
      color: gray;
 }
 
-h1 small {
-    font-size: 24px;
-    font-weight: normal;
-    color: black;
-    padding: 0px;
-}
 
 h2 {
      font-size: 24px;
@@ -102,48 +95,7 @@ h2 {
      color: black;
 }
 
-h2 a {
-     color: #999999;
-}
 
-h2 a:link {
-     color: black;
-}
-
-h2 a:hover {
-     color: #D00;
-}
-
-h3 {
-     fontsize: 24px;
-     font-weight: normal;
-     color: #CCC; 
-}
-
-
-h4 {
-     color: #999999;
-     font-size: 18px;
-     text-align: right;
-}
-
-h6 {
-     font-style: strong;
-     color: #999;
-     font-size: 16px;
-}
-
-
-img {
-     display: block;
-     margin: 10px 0;
-     max-width: 100%;
-}
-
-
-hr {
-     color: #CCC;
-}
 
 
 /******************************************
@@ -151,10 +103,6 @@ hr {
 /*******************************************/
 
 
-header h2 {
-     font-size: 24px;
-     margin-bottom: 6px; 
-}
 
 header nav a {
      display: inline-block;
@@ -175,19 +123,7 @@ header nav a:hover {
      border-bottom-color: #BBB;
 }
 
-article {
-     border-bottom: 1px solid #DDD;
-     margin: 36px 0;
-     padding-bottom: 18px;
-}
-
-article p:first-letter {
-     float: left;
-     font-size: 52px;
-     line-height: 1;
-     color: #DDD;
-     margin: -.1em .1em 0 -.1em;
-}
+/* FOOTER - MIGHT ADD */
 
 footer {
      color: #BBB;
@@ -202,30 +138,6 @@ footer nav {
 /* ADDITIONAL STYLES                   
 /*******************************************/
 
-
-header {
-  float: left;
-  width: 100%;
-}
-
-#main {
-  float: left;
-  width: 70%;
-}
-
-aside {
-  float: right;
-  width: 30%;
-}
-
-footer {
-  float: left;
-  width: 100%;
-}
-
-.sidebar {
-  padding: 36px 0 0 36px;
-}
 
 table {
     empty-cells: show;
