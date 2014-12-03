@@ -14,7 +14,7 @@ $(document).ready(function() {
   // add up the daily total and push to the array as a key value pair for this object
 
   // update grand total for 28 day period
-  $(".myTotal").append ("<h1>something</h1>"); // if I wasn't using mulitple pages, I think this would work, need an API, not sure how to start building this in chunks
+  $(".myTotal").append ("<strong>something</strong>"); 
 
   //reset the form fields (this will happen automatically with return I think)
 
@@ -29,7 +29,7 @@ $(document).ready(function() {
 
   // when day =29, display button to start over and hide form
 
-   //return false; NOT in my case - I WANT it to return to refresh the form
+   return false; //NOT in my case - I WANT it to return to refresh the form
   });
 
 
