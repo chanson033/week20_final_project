@@ -1,0 +1,36 @@
+
+
+my objects and arrays might look something like this
+
+{
+  user: {
+    name: "Cate",
+    grandtotal: 24,
+    days: [
+      {
+        day: 1,
+        nutrition: "5",
+        workout: 1,
+        stretch: 0, // just true / false, or the points?
+        supp: 1,
+        water: 1,
+        other: 1,
+        comments: 1,
+        commenttext: "that was easy",
+        dailytotal: 11,
+      },
+      {
+        day: 2,
+        nutrition: "5",
+        workout: 1,
+        stretch: 1, 
+        supp: 1,
+        water: 1,
+        other: 1,
+        comments: 1,
+        commenttext: "that was hard",
+        dailytotal: 13,
+      }
+    ]
+  }
+}
