@@ -103,16 +103,17 @@ h2 {
 
 header nav a {
      display: inline-block;
-     font-size: 18px;
+     font-size: 12px;
      margin-right: 2px;
      color: #FFF;
-     border-bottom: 2px solid #EEE;
+     /*border-bottom: 2px solid #EEE;*/
      background-color: black;
+     border-radius: 10px;
 }
 
 header nav a:link {
      color: #FFF;
-     padding: 10px 20px;
+     padding: 5px 10px;
 }
 
 header nav a:hover {
@@ -184,4 +185,9 @@ tr td:nth-of-type(n + 8) {
 tr td:nth-of-type(n + 9) {
     background-color: white;
     color: black;
+}
+
+tr td:nth-of-type(n + 10) {
+    background-color: white;
+    color: #5DCEE3;
 }
