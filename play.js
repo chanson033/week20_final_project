@@ -1,3 +1,4 @@
+//Cate Hanson's final project
 
 $(document).ready(function() {
 
@@ -13,9 +14,6 @@ $(document).ready(function() {
 
   // add up the daily total and push to the array as a key value pair for this object
 
-  // update grand total for 28 day period
-  $(".myTotal").append ("<strong>something</strong>"); 
-
   //reset the form fields (this will happen automatically with return I think)
 
   // the day number on the html page progresses
@@ -23,15 +21,21 @@ $(document).ready(function() {
   // push info to Firebase
 
   // display all form values on my scoreboard, including comments and grandTotal
-  $( ".day1 td:nth-of-type(2)" )
-		.replaceWith ( "5" );
+      var x = $( "select.nutrition" ).val();
+      console.log (x);
+      $( ".day1 td:nth-of-type(2)" )
+  		.replaceWith ("<td>" + x + "</td>");
 		//.addClass( "nth" ); // only do this if I need to remove the color for zero points
+
+     // update grand total for 28 day period
+    $(".myTotal").append ("<strong>" + x + "</strong>"); 
 
   // when day =29, display button to start over and hide form
 
+  
    return false; //NOT in my case - I WANT it to return to refresh the form
+    });
   });
-
 
 //start again button
 // on submit, clear array?
