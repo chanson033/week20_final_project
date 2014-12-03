@@ -2,40 +2,106 @@
 
 $(document).ready(function() {
 
-	var days = [];
-	var dailyTotal;
-	var grandTotal;
+	// var dailyTotal;
+	// var grandTotal;
+ //  var scores [];
+
+
+  //var userData =  {
+      //name: "Cate",
+      // grandtotal: 24,
+     //  scores: [ 
+        // {
+        //   day: 1, // this is implicit but I might want it later
+        //   nutrition: "5",
+        //   workout: 1,
+        //   stretch: 0, // just true / false, or the points?
+        //   supp: 1,
+        //   water: 1,
+        //   other: 1,
+        //   comments: 1,
+        //   commenttext: "that was easy",
+        //   dailytotal: 11,
+        // },
+            //]
+      //};
 
 
   // Set up a submit handler so that data is passed when the form is submitted
   $("form.dailyscore").submit(function() {
-  
-  // take the form values and store as an object in an array, for workout and stretch yes=2, for supp, water, other, comments yes=1, no=0 (store points or just true false?)
 
-  // add up the daily total and push to the array as a key value pair for this object
 
-  //reset the form fields (this will happen automatically with return I think)
+    // **********************************
+    // Gather data 
+    // **********************************
+      // scores[0] = {
+      //       day: 1;
+      //       nutrition: 5,
+      //       workout: 2,
+      //       stretch: 2, 
+      //       supp: 1,
+      //       water: 1,
+      //       other: 1,
+      //       comments: 1,
+      //       commenttext: "that was easy",
+      //       dailytotal: 13
+      // }
 
-  // the day number on the html page progresses
+      //   console.log( scores[0].workout );
 
-  // push info to Firebase
+    // **********************************
+    // Display data  - use the array to populate the screen
+    // **********************************
 
-  // display all form values on my scoreboard, including comments and grandTotal
-      var x = $( "select.nutrition" ).val();
-      $( ".day1 td:nth-of-type(2)" )
-  		.replaceWith ("<td>" + x + "</td>");
-		//.addClass( "nth" ); // could do this if I want to remove the color for zero points
+      var nutrition_points = $( "select.nutrition" ).val();
+        $( ".day1 td:nth-of-type(2)" )
+    		.replaceWith ("<td>" + nutrition_points + "</td>");
+        //.addClass( "nth" ); // could do this if I want to remove the color for zero points
+
       
+      var workout_pts = $( "select.workout" ) .val() 
+          $( ".day1 td:nth-of-type(3)" )
+          .replaceWith ("<td>" + workout_pts + "</td>");
+
+
+      var stretch_pts = $( "select.stretch" ) .val() 
+          $( ".day1 td:nth-of-type(4)" )
+          .replaceWith ("<td>" + stretch_pts + "</td>");
+
+
+      var supplements_pts = $( "select.supplements" ) .val() 
+          $( ".day1 td:nth-of-type(5)" )
+          .replaceWith ("<td>" + stretch_pts + "</td>");
+
+      var water_pts = $( "select.water" ) .val() 
+          $( ".day1 td:nth-of-type(6)" )
+          .replaceWith ("<td>" + water_pts + "</td>");
+
+      var other_pts = $( "select.other" ) .val() 
+          $( ".day1 td:nth-of-type(7)" )
+          .replaceWith ("<td>" + other_pts + "</td>");
+
+
       var comments = $( "input.comments" ).val();
-      $( ".day1 td:nth-of-type(10)" )
-      .replaceWith ("<td>" + comments + "</td>");
+        $( ".day1 td:nth-of-type(10)" )
+        .append (comments);
       
-
 
      // update grand total for 28 day period
-    $(".myTotal").append ("<strong>" + x + "</strong>"); 
+      $(".myTotal").append ("<strong>" + nutrition_points + "</strong>"); 
 
-  // when day =29, display button to start over and hide form
+    //reset the form fields 
+
+    // the day number on the html page progresses
+
+    // when day =29, display button to start over and hide form
+
+
+    // **********************************
+    // Save data - Firebase
+    // **********************************
+
+  
 
   
    return false; //NOT in my case - I WANT it to return to refresh the form

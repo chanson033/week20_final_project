@@ -3,7 +3,7 @@
 my objects and arrays might look something like this
 
 {
-  user: {
+  userData: {
     name: "Cate",
     grandtotal: 24,
     days: [
@@ -34,3 +34,20 @@ my objects and arrays might look something like this
     ]
   }
 }
+
+
+to make things more DRY
+function updateScoreboard
+target and value
+
+MVC - model view controller
+firebase
+
+similar to chat client in a way
+usernames 
+
+start by hardcoding username - always Cate
+on submit
+gather data
+display data (view part)
+save data
