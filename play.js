@@ -22,10 +22,15 @@ $(document).ready(function() {
 
   // display all form values on my scoreboard, including comments and grandTotal
       var x = $( "select.nutrition" ).val();
-      console.log (x);
       $( ".day1 td:nth-of-type(2)" )
   		.replaceWith ("<td>" + x + "</td>");
-		//.addClass( "nth" ); // only do this if I need to remove the color for zero points
+		//.addClass( "nth" ); // could do this if I want to remove the color for zero points
+      
+      var comments = $( "input.comments" ).val();
+      $( ".day1 td:nth-of-type(10)" )
+      .replaceWith ("<td>" + comments + "</td>");
+      
+
 
      // update grand total for 28 day period
     $(".myTotal").append ("<strong>" + x + "</strong>"); 
