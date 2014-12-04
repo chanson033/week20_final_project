@@ -1,29 +1,10 @@
 //Cate Hanson's final project
 
-//var scores = {};
-//var myDataRef = new Firebase('https://fiery-inferno-6944.firebaseIO.com');
+var myDataRef = new Firebase("https://fiery-inferno-6944.firebaseIO.com/");
+
 
 $(document).ready(function() {
 
-	var dailyTotal;
-	// var grandTotal;
-  // var scores [];
-  
-
-  
-
-        //   day: 1, // this is implicit but I might want it later
-        //   nutrition: "5",
-        //   workout: 1,
-        //   stretch: 0, // just true / false, or the points?
-        //   supp: 1,
-        //   water: 1,
-        //   other: 1,
-        //   comments: 1,
-        //   commenttext: "that was easy",
-        //   dailytotal: 11,
-        
-      
 
 
   // Set up a submit handler so that data is passed when the form is submitted
@@ -34,109 +15,137 @@ $(document).ready(function() {
     // Push each object to Firebase, Firebase will create the array
     // ************************************************************
       // array[] = {
-      //       date:   ,
-      //       day: 1,
-      //       nutrition: 5,
-      //       workout: 2,
-      //       stretch: 2, 
-      //       supp: 1,
-      //       water: 1,
-      //       other: 1,
-      //       comments: 1,
-      //       commenttext: "that was easy",
-      //       dailytotal: 13
+          // date: "12/04/2014"
+          // nutrition: 5,
+          // workout: 2,
+          // stretch: 2,
+          // supplements: 1,
+          // water: 1,
+          // other: 1,
+          // comment_pts: 1,
+          // dailyTotal: 13,
+          // comments: "dd"
       // }
+      
 
-
-
-      // date key 
-      scores.date = $( "#datepicker").val ();
-        console.log (scores);
-
-      // nutrition key
-      var nutrition_points = parseInt($( "select.nutrition" ).val() ,10);
-        scores.nutrition = nutrition_points;
-        console.log (scores);
-        // display 
-        $( ".day1 td:nth-of-type(2)" )
-        .replaceWith ("<td>" + nutrition_points + "</td>");
-        //.addClass( "nada" ); // could use this if I want to remove the color for a td with zero points
-
-      // workout key
-      var workout_pts = parseInt($( "select.workout" ) .val() ,10); 
-          scores.workout = workout_pts;
-          console.log (scores);
-          //display
-          $( ".day1 td:nth-of-type(3)" )
-          .replaceWith ("<td>" + workout_pts + "</td>");
-
-      // stretch key
-      var stretch_pts = parseInt($( "select.stretch" ) .val() ,10); 
-          scores.stretch = stretch_pts;
-          console.log (scores);
-          //display
-          $( ".day1 td:nth-of-type(4)" )
-          .replaceWith ("<td>" + stretch_pts + "</td>");
-
-      // supplments key
-      var supplements_pts = parseInt($( "select.supplements" ) .val() ,10);
-          scores.supplements = supplements_pts;
-          console.log (scores);
-          //display
-           $( ".day1 td:nth-of-type(5)" )
-          .replaceWith ("<td>" + supplements_pts + "</td>");
-
-      // water key
-      var water_pts = parseInt($( "select.water" ) .val() ,10); 
-          scores.water = water_pts;
-          console.log (scores);
-          //display
-           $( ".day1 td:nth-of-type(6)" )
-          .replaceWith ("<td>" + water_pts + "</td>");
-
-      // other key
-      var other_pts = parseInt($( "select.other" ) .val() ,10);
-          scores.other = other_pts;
-          console.log (scores);
-          // display
-          $( ".day1 td:nth-of-type(7)" )
-          .replaceWith ("<td>" + other_pts + "</td>");
-
-      //comments key
+      // assigning values to variables
+      var date = $( "#datepicker").val ();
+      var nutrition = parseInt($( "select.nutrition" ).val() ,10);
+      var workout = parseInt($( "select.workout" ) .val() ,10); 
+      var stretch = parseInt($( "select.stretch" ) .val() ,10); 
+      var supplements = parseInt($( "select.supplements" ) .val() ,10);
+      var water = parseInt($( "select.water" ) .val() ,10);
+      var other = parseInt($( "select.other" ) .val() ,10); 
       var comments = $( "input.comments" ).val();
-        scores.comments = comments;
-        console.log (scores);
-        // display
-        $( ".day1 td:nth-of-type(10)" )
-        .append (comments);
-
-      // comment points key
       var comment_pts;
         if ($( "input.comments" ).val() === "") {
           comment_pts = 0;
         } else {
           comment_pts = 1;
         };
+      var dailyTotal = (nutrition + workout + stretch + supplements + water + other + comment_pts);
 
-        scores.comment_pts = comment_pts;
-        console.log (scores);
-        // display
-        $( ".day1 td:nth-of-type(8)" )
-        .replaceWith ("<td>" + comment_pts + "</td>");
+      myDataRef.push({
+        date: date, 
+        nutrition: nutrition, 
+        workout: workout,
+        stretch: stretch, 
+        supplements: supplements,
+        water: water, 
+        other: other, 
+        comments: comments,
+        comment_pts: comment_pts,
+        dailyTotal: dailyTotal,
+      });
+
+     //  // date key 
+     //  scores.date = $( "#datepicker").val ();
+     //    console.log (scores);
+
+     //  // nutrition key
+     //  var nutrition_points = parseInt($( "select.nutrition" ).val() ,10);
+     //    scores.nutrition = nutrition_points;
+     //    console.log (scores);
+     //    // display 
+     //    $( ".day1 td:nth-of-type(2)" )
+     //    .replaceWith ("<td>" + nutrition_points + "</td>");
+     //    //.addClass( "nada" ); // could use this if I want to remove the color for a td with zero points
+
+     //  // workout key
+     //  var workout_pts = parseInt($( "select.workout" ) .val() ,10); 
+     //      scores.workout = workout_pts;
+     //      console.log (scores);
+     //      //display
+     //      $( ".day1 td:nth-of-type(3)" )
+     //      .replaceWith ("<td>" + workout_pts + "</td>");
+
+     //  // stretch key
+     //  var stretch_pts = parseInt($( "select.stretch" ) .val() ,10); 
+     //      scores.stretch = stretch_pts;
+     //      console.log (scores);
+     //      //display
+     //      $( ".day1 td:nth-of-type(4)" )
+     //      .replaceWith ("<td>" + stretch_pts + "</td>");
+
+     //  // supplments key
+     //  var supplements_pts = parseInt($( "select.supplements" ) .val() ,10);
+     //      scores.supplements = supplements_pts;
+     //      console.log (scores);
+     //      //display
+     //       $( ".day1 td:nth-of-type(5)" )
+     //      .replaceWith ("<td>" + supplements_pts + "</td>");
+
+     //  // water key
+     //  var water_pts = parseInt($( "select.water" ) .val() ,10); 
+     //      scores.water = water_pts;
+     //      console.log (scores);
+     //      //display
+     //       $( ".day1 td:nth-of-type(6)" )
+     //      .replaceWith ("<td>" + water_pts + "</td>");
+
+     //  // other key
+     //  var other_pts = parseInt($( "select.other" ) .val() ,10);
+     //      scores.other = other_pts;
+     //      console.log (scores);
+     //      // display
+     //      $( ".day1 td:nth-of-type(7)" )
+     //      .replaceWith ("<td>" + other_pts + "</td>");
+
+     //  //comments key
+     //  var comments = $( "input.comments" ).val();
+     //    scores.comments = comments;
+     //    console.log (scores);
+     //    // display
+     //    $( ".day1 td:nth-of-type(10)" )
+     //    .append (comments);
+
+     //  // comment points key
+     //  var comment_pts;
+     //    if ($( "input.comments" ).val() === "") {
+     //      comment_pts = 0;
+     //    } else {
+     //      comment_pts = 1;
+     //    };
+
+     //    scores.comment_pts = comment_pts;
+     //    console.log (scores);
+     //    // display
+     //    $( ".day1 td:nth-of-type(8)" )
+     //    .replaceWith ("<td>" + comment_pts + "</td>");
       
 
-      // daily total key
-      dailyTotal = (nutrition_points + workout_pts + stretch_pts + supplements_pts + water_pts + other_pts + comment_pts);
-        scores.dailyTotal = dailyTotal;
-        console.log (scores);
-        // display
-        $( ".day1 td:nth-of-type(9)" )
-        .replaceWith ("<td>" + dailyTotal + "</td>");
+     //  // daily total key
+     //  dailyTotal = (nutrition_points + workout_pts + stretch_pts + supplements_pts + water_pts + other_pts + comment_pts);
+     //    scores.dailyTotal = dailyTotal;
+     //    console.log (scores);
+     //    // display
+     //    $( ".day1 td:nth-of-type(9)" )
+     //    .replaceWith ("<td>" + dailyTotal + "</td>");
         
       
 
-     // display grand total - move to call back area 
-      $(".myTotal").append ("<strong>" + "&nbsp" + nutrition_points + "</strong>"); 
+     // // display grand total - move to call back area 
+     //  $(".myTotal").append ("<strong>" + "&nbsp" + nutrition_points + "</strong>"); 
 
     //reset the form fields 
     // can't do $('.commentsInput').val(''); with all - use return? 
@@ -145,7 +154,7 @@ $(document).ready(function() {
     // after 28 days have been entered, give some text and a start over button 
 
 
- return false; // I WANT it to return to refresh the form, yes?
+ return dailyTotal; // I WANT it to return to refresh the form, yes?
     });
   });
 
