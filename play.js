@@ -1,6 +1,7 @@
 //Cate Hanson's final project
 
 var scores = {};
+//var myDataRef = new Firebase('https://fiery-inferno-6944.firebaseIO.com');
 
 $(document).ready(function() {
 
@@ -29,11 +30,11 @@ $(document).ready(function() {
   $("form.dailyscore").submit(function() {
 
 
-    // **********************************
-    // Gather data 
-    // **********************************
-      // scores[0] = {
-      //       datetime:   ,
+    // ************************************************************
+    // Push each object to Firebase, Firebase will create the array
+    // ************************************************************
+      // array[] = {
+      //       date:   ,
       //       day: 1,
       //       nutrition: 5,
       //       workout: 2,
@@ -46,11 +47,7 @@ $(document).ready(function() {
       //       dailytotal: 13
       // }
 
-      //   console.log( scores[0].workout );
 
-    // **********************************
-    // Display data  - use a function to make this more DRY, and use the array
-    // **********************************
 
       
       scores.date = $( "#datepicker").val ();
@@ -103,16 +100,18 @@ $(document).ready(function() {
         scores.comments = comments;
         console.log (scores);
 
-      var comment_pts = 0;
-      if ($( "input.comments" ).val() !== "") {
-        comment_pts = 1;
-      } else {
-        comment_pts = 0;
+      var comment_pts;
+        if ($( "input.comments" ).val() === "") {
+          comment_pts = 0;
+        } else {
+          comment_pts = 1;
+        };
+
         scores.comment_pts = comment_pts;
         console.log (scores);
         $( ".day1 td:nth-of-type(8)" )
         .replaceWith ("<td>" + comment_pts + "</td>");
-      }
+      
 
       // daily total 
       dailyTotal = (nutrition_points + workout_pts + stretch_pts + supplements_pts + water_pts + other_pts + comment_pts);
@@ -127,6 +126,7 @@ $(document).ready(function() {
       $(".myTotal").append ("<strong>" + "&nbsp" + nutrition_points + "</strong>"); 
 
     //reset the form fields 
+    // will look somelthing like $('.commentsInput').val(''); hmm how to do the whole form, return? 
 
     // the day number on the html page progresses
 
