@@ -52,6 +52,11 @@ $(document).ready(function() {
     // Display data  - use a function to make this more DRY, and use the array
     // **********************************
 
+      
+      scores.date = $( "#datepicker").val ();
+        console.log (scores);
+
+
       var nutrition_points = parseInt($( "select.nutrition" ).val() ,10);
         $( ".day1 td:nth-of-type(2)" )
     		.replaceWith ("<td>" + nutrition_points + "</td>");
@@ -77,28 +82,41 @@ $(document).ready(function() {
       var supplements_pts = parseInt($( "select.supplements" ) .val() ,10);
           $( ".day1 td:nth-of-type(5)" )
           .replaceWith ("<td>" + supplements_pts + "</td>");
+          scores.supplements = supplements_pts;
+          console.log (scores);
 
       var water_pts = parseInt($( "select.water" ) .val() ,10); 
           $( ".day1 td:nth-of-type(6)" )
           .replaceWith ("<td>" + water_pts + "</td>");
+          scores.water = water_pts;
+          console.log (scores);
 
       var other_pts = parseInt($( "select.other" ) .val() ,10);
           $( ".day1 td:nth-of-type(7)" )
           .replaceWith ("<td>" + other_pts + "</td>");
+          scores.other = other_pts;
+          console.log (scores);
 
       var comments = $( "input.comments" ).val();
         $( ".day1 td:nth-of-type(10)" )
         .append (comments);
+        scores.comments = comments;
+        console.log (scores);
 
-      var comment_pts = 1;
-        // if comments = true { // this isn't working yet
-        //   comment_pts = 1;
-        // } 
-        // else {
-        //   comment_pts = 0;
-        // }
+      var comment_pts = 0;
+      if ($( "input.comments" ).val() !== "") {
+        comment_pts += 1;
+        scores.comment_pts = comment_pts;
+        console.log (scores);
         $( ".day1 td:nth-of-type(8)" )
-          .replaceWith ("<td>" + comment_pts + "</td>");
+        .replaceWith ("<td>" + comment_pts + "</td>");
+      }
+
+
+       
+        
+      
+
 
       // daily total 
       dailyTotal = (nutrition_points + workout_pts + stretch_pts + supplements_pts + water_pts + other_pts + comment_pts);
