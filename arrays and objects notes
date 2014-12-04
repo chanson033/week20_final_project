@@ -52,5 +52,14 @@ gather data
 display data (view part)
 save data
 
+
+Notes with David and Kyle Wed night
+push the object to firebase (like chat exercise) on submit
+after the push, call a fuction to update the table with the scores updateScore ();
+function updateScore () {
+    
+}
+
 calculate grandTotal on the fly each time
-add a row each time there is data
+add a row each time 
+also clean up CSS of date picker

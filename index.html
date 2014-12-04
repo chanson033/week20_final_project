@@ -16,11 +16,13 @@
     <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 		<script src="play.js"></script>
 
+    <script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
+
 	</head>
 	<body>
 		<header>
 			<div>
-				<h1>28 Day Health Tracker</h1>
+				<h1>Monthly Health Tracker</h1>
 
 					<!-- hiding this complexity at first 
           <nav>
@@ -93,7 +95,7 @@
       <h2>Scoreboard</h2>
 
     <h1 class="myTotal">Total points:</h1>
-    <table>
+    <table id="scoreboard">
       <thead></thead>
       <tbody>
         <tr class="day1"><td>Day 1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Total</td><td></td></tr>

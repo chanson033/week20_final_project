@@ -105,24 +105,21 @@ $(document).ready(function() {
 
       var comment_pts = 0;
       if ($( "input.comments" ).val() !== "") {
-        comment_pts += 1;
+        comment_pts = 1;
+      } else {
+        comment_pts = 0;
         scores.comment_pts = comment_pts;
         console.log (scores);
         $( ".day1 td:nth-of-type(8)" )
         .replaceWith ("<td>" + comment_pts + "</td>");
       }
 
-
-       
-        
-      
-
-
       // daily total 
       dailyTotal = (nutrition_points + workout_pts + stretch_pts + supplements_pts + water_pts + other_pts + comment_pts);
-      // need parseInt
         $( ".day1 td:nth-of-type(9)" )
         .replaceWith ("<td>" + dailyTotal + "</td>");
+        scores.dailyTotal = dailyTotal;
+        console.log (scores);
         
       
 
