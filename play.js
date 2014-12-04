@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 
-	// var dailyTotal;
+	var dailyTotal;
 	// var grandTotal;
  //  var scores [];
 
@@ -81,10 +81,24 @@ $(document).ready(function() {
           $( ".day1 td:nth-of-type(7)" )
           .replaceWith ("<td>" + other_pts + "</td>");
 
-
       var comments = $( "input.comments" ).val();
         $( ".day1 td:nth-of-type(10)" )
         .append (comments);
+
+      //   if comments = true {
+      //     comment_pts = 1;
+      //   } else {
+      //     comment_pts = 0;
+      //   }
+      //   $( ".day1 td:nth-of-type(8)" )
+      //     .replaceWith ("<td>" + comment_pts + "</td>");
+
+      // daily total 
+      //dailyTotal = nutrition_points + workout_pts + stretch_pts + supplements_pts + water_pts + other_pts + comment_pts;
+      dailyTotal = 50;
+        $( ".day1 td:nth-of-type(9)" )
+          .replaceWith ("<td>" + dailyTotal + "</td>");
+        
       
 
      // update grand total for 28 day period
