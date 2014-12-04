@@ -49,57 +49,68 @@ $(document).ready(function() {
 
 
 
-      
+      // date key 
       scores.date = $( "#datepicker").val ();
         console.log (scores);
 
-
+      // nutrition key
       var nutrition_points = parseInt($( "select.nutrition" ).val() ,10);
-        $( ".day1 td:nth-of-type(2)" )
-    		.replaceWith ("<td>" + nutrition_points + "</td>");
-        //.addClass( "nada" ); // could do this if I want to remove the color for a td with zero points
         scores.nutrition = nutrition_points;
         console.log (scores);
+        // display 
+        $( ".day1 td:nth-of-type(2)" )
+        .replaceWith ("<td>" + nutrition_points + "</td>");
+        //.addClass( "nada" ); // could use this if I want to remove the color for a td with zero points
 
-      
+      // workout key
       var workout_pts = parseInt($( "select.workout" ) .val() ,10); 
-          $( ".day1 td:nth-of-type(3)" )
-          .replaceWith ("<td>" + workout_pts + "</td>");
           scores.workout = workout_pts;
           console.log (scores);
+          //display
+          $( ".day1 td:nth-of-type(3)" )
+          .replaceWith ("<td>" + workout_pts + "</td>");
 
-
+      // stretch key
       var stretch_pts = parseInt($( "select.stretch" ) .val() ,10); 
-          $( ".day1 td:nth-of-type(4)" )
-          .replaceWith ("<td>" + stretch_pts + "</td>");
           scores.stretch = stretch_pts;
           console.log (scores);
+          //display
+          $( ".day1 td:nth-of-type(4)" )
+          .replaceWith ("<td>" + stretch_pts + "</td>");
 
-
+      // supplments key
       var supplements_pts = parseInt($( "select.supplements" ) .val() ,10);
-          $( ".day1 td:nth-of-type(5)" )
-          .replaceWith ("<td>" + supplements_pts + "</td>");
           scores.supplements = supplements_pts;
           console.log (scores);
+          //display
+           $( ".day1 td:nth-of-type(5)" )
+          .replaceWith ("<td>" + supplements_pts + "</td>");
 
+      // water key
       var water_pts = parseInt($( "select.water" ) .val() ,10); 
-          $( ".day1 td:nth-of-type(6)" )
-          .replaceWith ("<td>" + water_pts + "</td>");
           scores.water = water_pts;
           console.log (scores);
+          //display
+           $( ".day1 td:nth-of-type(6)" )
+          .replaceWith ("<td>" + water_pts + "</td>");
 
+      // other key
       var other_pts = parseInt($( "select.other" ) .val() ,10);
-          $( ".day1 td:nth-of-type(7)" )
-          .replaceWith ("<td>" + other_pts + "</td>");
           scores.other = other_pts;
           console.log (scores);
+          // display
+          $( ".day1 td:nth-of-type(7)" )
+          .replaceWith ("<td>" + other_pts + "</td>");
 
+      //comments key
       var comments = $( "input.comments" ).val();
-        $( ".day1 td:nth-of-type(10)" )
-        .append (comments);
         scores.comments = comments;
         console.log (scores);
+        // display
+        $( ".day1 td:nth-of-type(10)" )
+        .append (comments);
 
+      // comment points key
       var comment_pts;
         if ($( "input.comments" ).val() === "") {
           comment_pts = 0;
@@ -109,40 +120,43 @@ $(document).ready(function() {
 
         scores.comment_pts = comment_pts;
         console.log (scores);
+        // display
         $( ".day1 td:nth-of-type(8)" )
         .replaceWith ("<td>" + comment_pts + "</td>");
       
 
-      // daily total 
+      // daily total key
       dailyTotal = (nutrition_points + workout_pts + stretch_pts + supplements_pts + water_pts + other_pts + comment_pts);
-        $( ".day1 td:nth-of-type(9)" )
-        .replaceWith ("<td>" + dailyTotal + "</td>");
         scores.dailyTotal = dailyTotal;
         console.log (scores);
+        // display
+        $( ".day1 td:nth-of-type(9)" )
+        .replaceWith ("<td>" + dailyTotal + "</td>");
         
       
 
-     // update grand total for 28 day period
+     // display grand total - move to call back area 
       $(".myTotal").append ("<strong>" + "&nbsp" + nutrition_points + "</strong>"); 
 
     //reset the form fields 
-    // will look somelthing like $('.commentsInput').val(''); hmm how to do the whole form, return? 
-
-    // the day number on the html page progresses
-
-    // when day =29, display button to start over and hide form
+    // can't do $('.commentsInput').val(''); with all - use return? 
 
 
-    // **********************************
-    // Save data - Firebase
-    // **********************************
+    // after 28 days have been entered, give some text and a start over button 
 
-  
 
-  
-   return false; // once I have 2 pages, I WANT it to return to refresh the form, yes?
+ return false; // I WANT it to return to refresh the form, yes?
     });
   });
+
+    // **********************************************
+    // Call back from firebase and update scoreboard
+    // **********************************************
+
+  
+
+  
+  
 
 //start again button
 // on submit, clear array?
