@@ -1,6 +1,6 @@
 //Cate Hanson's final project
 
-var scores = {};
+//var scores = {};
 //var myDataRef = new Firebase('https://fiery-inferno-6944.firebaseIO.com');
 
 $(document).ready(function() {
@@ -153,8 +153,30 @@ $(document).ready(function() {
     // Call back from firebase and update scoreboard
     // **********************************************
 
-  
+  function updateScore (da, nu, wo, st, su, wa, ot, co_pts, dT, co ) { 
 
+    // add a row for each new object into the table
+    $( "#scoreboard tbody" ).append ("<tr><td>" + 
+          da + "</td><td>" + 
+          nu + "</td><td>" + 
+          wo + "</td><td>" + 
+          st + "</td><td>" + 
+          su + "</td><td>" + 
+          wa + "</td><td>" + 
+          ot + "</td><td>" + 
+          co_pts + "</td><td>" + 
+          dT + "</td><td>" + 
+          co + "</td><td>" +  
+          "</td></tr>");
+
+     // calc grandTotal and update page
+  };
+
+    // call the function
+    myDataRef.on('child_added', function(snapshot) {
+        var scores = snapshot.val();
+        updateScore(scores.date, scores.nutrition, scores.workout, scores.stretch, scores.supplements, scores.water, scores.other, scores.comment_pts, scores.dailyTotal, scores.comments);
+    });
   
   
 
