@@ -9,9 +9,11 @@
 		
 		<!-- external CSS link -->
 		<link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" href="css/styles.css">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 		<script src="play.js"></script>
 
 	</head>
@@ -30,11 +32,17 @@
 
     <h2>Enter Daily Score</h2>
 
-    <h1>Day 1 </h1>
+    <!-- date picker -->
+    <p>Date: <input type="text" id="datepicker"></p>
+    <script>
+      $(function() {
+        $( "#datepicker" ).datepicker();
+      });
+    </script>
 
 		<form class='dailyscore'>
 		<label>Nutrition (0-5)</label>
-        <select class='nutrition'>
+        <select class='nutrition' type = 'number'>
           <option value=5>5</option>
           <option value=4>4</option>
           <option value=3>3</option>

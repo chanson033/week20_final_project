@@ -1,17 +1,16 @@
 //Cate Hanson's final project
 
+var scores = {};
+
 $(document).ready(function() {
 
 	var dailyTotal;
 	// var grandTotal;
- //  var scores [];
+  // var scores [];
+  
 
+  
 
-  //var userData =  {
-      //name: "Cate",
-      // grandtotal: 24,
-     //  scores: [ 
-        // {
         //   day: 1, // this is implicit but I might want it later
         //   nutrition: "5",
         //   workout: 1,
@@ -22,9 +21,8 @@ $(document).ready(function() {
         //   comments: 1,
         //   commenttext: "that was easy",
         //   dailytotal: 11,
-        // },
-            //]
-      //};
+        
+      
 
 
   // Set up a submit handler so that data is passed when the form is submitted
@@ -35,7 +33,8 @@ $(document).ready(function() {
     // Gather data 
     // **********************************
       // scores[0] = {
-      //       day: 1;
+      //       datetime:   ,
+      //       day: 1,
       //       nutrition: 5,
       //       workout: 2,
       //       stretch: 2, 
@@ -50,23 +49,29 @@ $(document).ready(function() {
       //   console.log( scores[0].workout );
 
     // **********************************
-    // Display data  - use the array to populate the screen
+    // Display data  - use a function to make this more DRY, and use the array
     // **********************************
 
       var nutrition_points = parseInt($( "select.nutrition" ).val() ,10);
         $( ".day1 td:nth-of-type(2)" )
     		.replaceWith ("<td>" + nutrition_points + "</td>");
         //.addClass( "nada" ); // could do this if I want to remove the color for a td with zero points
+        scores.nutrition = nutrition_points;
+        console.log (scores);
 
       
       var workout_pts = parseInt($( "select.workout" ) .val() ,10); 
           $( ".day1 td:nth-of-type(3)" )
           .replaceWith ("<td>" + workout_pts + "</td>");
+          scores.workout = workout_pts;
+          console.log (scores);
 
 
       var stretch_pts = parseInt($( "select.stretch" ) .val() ,10); 
           $( ".day1 td:nth-of-type(4)" )
           .replaceWith ("<td>" + stretch_pts + "</td>");
+          scores.stretch = stretch_pts;
+          console.log (scores);
 
 
       var supplements_pts = parseInt($( "select.supplements" ) .val() ,10);

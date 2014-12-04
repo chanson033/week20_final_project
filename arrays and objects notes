@@ -43,7 +43,7 @@ target and value
 MVC - model view controller
 firebase
 
-similar to chat client in a way
+similar to chat client homework in a way
 usernames 
 
 start by hardcoding username - always Cate
@@ -51,3 +51,6 @@ on submit
 gather data
 display data (view part)
 save data
+
+calculate grandTotal on the fly each time
+add a row each time there is data
