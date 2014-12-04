@@ -53,31 +53,31 @@ $(document).ready(function() {
     // Display data  - use the array to populate the screen
     // **********************************
 
-      var nutrition_points = $( "select.nutrition" ).val();
+      var nutrition_points = parseInt($( "select.nutrition" ).val() ,10);
         $( ".day1 td:nth-of-type(2)" )
     		.replaceWith ("<td>" + nutrition_points + "</td>");
-        //.addClass( "nth" ); // could do this if I want to remove the color for zero points
+        //.addClass( "nada" ); // could do this if I want to remove the color for a td with zero points
 
       
-      var workout_pts = $( "select.workout" ) .val() 
+      var workout_pts = parseInt($( "select.workout" ) .val() ,10); 
           $( ".day1 td:nth-of-type(3)" )
           .replaceWith ("<td>" + workout_pts + "</td>");
 
 
-      var stretch_pts = $( "select.stretch" ) .val() 
+      var stretch_pts = parseInt($( "select.stretch" ) .val() ,10); 
           $( ".day1 td:nth-of-type(4)" )
           .replaceWith ("<td>" + stretch_pts + "</td>");
 
 
-      var supplements_pts = $( "select.supplements" ) .val() 
+      var supplements_pts = parseInt($( "select.supplements" ) .val() ,10);
           $( ".day1 td:nth-of-type(5)" )
-          .replaceWith ("<td>" + stretch_pts + "</td>");
+          .replaceWith ("<td>" + supplements_pts + "</td>");
 
-      var water_pts = $( "select.water" ) .val() 
+      var water_pts = parseInt($( "select.water" ) .val() ,10); 
           $( ".day1 td:nth-of-type(6)" )
           .replaceWith ("<td>" + water_pts + "</td>");
 
-      var other_pts = $( "select.other" ) .val() 
+      var other_pts = parseInt($( "select.other" ) .val() ,10);
           $( ".day1 td:nth-of-type(7)" )
           .replaceWith ("<td>" + other_pts + "</td>");
 
@@ -85,24 +85,26 @@ $(document).ready(function() {
         $( ".day1 td:nth-of-type(10)" )
         .append (comments);
 
-      //   if comments = true {
-      //     comment_pts = 1;
-      //   } else {
-      //     comment_pts = 0;
-      //   }
-      //   $( ".day1 td:nth-of-type(8)" )
-      //     .replaceWith ("<td>" + comment_pts + "</td>");
+      var comment_pts = 1;
+        // if comments = true { // this isn't working yet
+        //   comment_pts = 1;
+        // } 
+        // else {
+        //   comment_pts = 0;
+        // }
+        $( ".day1 td:nth-of-type(8)" )
+          .replaceWith ("<td>" + comment_pts + "</td>");
 
       // daily total 
-      //dailyTotal = nutrition_points + workout_pts + stretch_pts + supplements_pts + water_pts + other_pts + comment_pts;
-      dailyTotal = 50;
+      dailyTotal = (nutrition_points + workout_pts + stretch_pts + supplements_pts + water_pts + other_pts + comment_pts);
+      // need parseInt
         $( ".day1 td:nth-of-type(9)" )
-          .replaceWith ("<td>" + dailyTotal + "</td>");
+        .replaceWith ("<td>" + dailyTotal + "</td>");
         
       
 
      // update grand total for 28 day period
-      $(".myTotal").append ("<strong>" + nutrition_points + "</strong>"); 
+      $(".myTotal").append ("<strong>" + "&nbsp" + nutrition_points + "</strong>"); 
 
     //reset the form fields 
 
@@ -118,7 +120,7 @@ $(document).ready(function() {
   
 
   
-   return false; //NOT in my case - I WANT it to return to refresh the form
+   return false; // once I have 2 pages, I WANT it to return to refresh the form, yes?
     });
   });
 
