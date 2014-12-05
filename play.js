@@ -10,7 +10,9 @@ $(document).ready(function() {
 
   // Set up a submit handler so that data is passed when the form is submitted
   $("form.dailyscore").submit(function(e) {
-    e.preventDefault();
+
+    // prevent the default return/refresh form behavior
+    e.preventDefault(); 
 
     // ************************************************************
     // Push each object to Firebase, Firebase will create the array
@@ -38,15 +40,14 @@ $(document).ready(function() {
       var water = parseInt($( "select.water" ) .val() ,10);
       var other = parseInt($( "select.other" ) .val() ,10); 
       var comments = $( "input.comments" ).val();
-      var comment_pts; // this has no parseInt
+      var comment_pts; // this has no parseInt but it works
         if ($( "input.comments" ).val() === "") {
           comment_pts = 0;
         } else {
           comment_pts = 1;
         };
       var dailyTotal = parseInt(nutrition + workout + stretch + supplements + water + other + comment_pts);
-      console.log('here');
-      console.log(dailyTotal);
+      //console.log(dailyTotal);
 
       
       myDataRef.push({
@@ -62,18 +63,18 @@ $(document).ready(function() {
         dailyTotal: dailyTotal
       });
 
-      $("form")[0].reset()
+      // reset the form without using return
+      $("form")[0].reset();
+      $( "#datepicker").datepicker('setDate', "");
 
      
     
+    // count how many days have been submitted
+    addCounter();
+    console.log(counter);
 
-
-
-    // after 28 days have been entered, give some text and a start over button 
-    // counter ++; // ++ iterating by one
-
-
-    return dailyTotal; // I WANT it to return to refresh the form, yes?
+   
+    // No return used, not passing anything out into another function
     });
   });
 
@@ -99,34 +100,28 @@ $(document).ready(function() {
           dT + "</td><td>" + 
           co + "</td><td>" +  
           "</td></tr>");
-
-     // calc grandTotal and update page
   };
 
     // call the function
     myDataRef.on('child_added', function(snapshot) {
         var scores = snapshot.val();
         updateScore(scores.date, scores.nutrition, scores.workout, scores.stretch, scores.supplements, scores.water, scores.other, scores.comment_pts, scores.dailyTotal, scores.comments);
-     // update
-     addGrandTotal(scores.dailyTotal);
-     addCounter();
+     
+         // update grandTotal
+         addGrandTotal(scores.dailyTotal);
+     
     });
   
- 
 
-//start again button
-// on submit, clear array?
-// start at day = 1 again
+  function addGrandTotal (dailyTotal) {
+       grandTotal += dailyTotal;
+       $(".myTotal").html("Total Points: " + grandTotal); 
+  };
 
-function addGrandTotal (dailyTotal) {
-  //console.log("hi");
-     console.log("grandTotal is" +  grandTotal + "before");
-     grandTotal += dailyTotal;
-     console.log("grandTotal is" +  grandTotal + "now");
-     $(".myTotal").html("Total Points: " + grandTotal); 
-};
+  function addCounter () {
+    counter ++;
+    //if the counter is greater than 28, hide the date picker and form, and display a Start Over button and some explanation text.
+    return counter;
+  };
 
-function addCounter () {
-  counter ++;
-  return counter;
-};
+// Define what happens when the user clicks the start again button, create a loop and .remove everything in Firebase to start over?
