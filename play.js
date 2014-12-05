@@ -106,10 +106,10 @@ $(document).ready(function() {
     myDataRef.on('child_added', function(snapshot) {
         var scores = snapshot.val();
         updateScore(scores.date, scores.nutrition, scores.workout, scores.stretch, scores.supplements, scores.water, scores.other, scores.comment_pts, scores.dailyTotal, scores.comments);
-     
+        // var nodes = snapshot.count();
          // update grandTotal
          addGrandTotal(scores.dailyTotal);
-     
+        // console.log(nodes);
     });
   
 
@@ -120,8 +120,18 @@ $(document).ready(function() {
 
   function addCounter () {
     counter ++;
-    //if the counter is greater than 28, hide the date picker and form, and display a Start Over button and some explanation text.
-    return counter;
+    var rowCount = $('#scoreboard').children('tbody').children('tr').length;
+    console.log(rowCount + "hi");
+    //if the counter is greater than 28, hide the date picker and form, and display <button>Start Over</button> and some explanation text.
+    if (rowCount > 28) {
+      $(".dailyscore").hide ();
+      $( ".dates").hide ();
+      $(".intro").html("You've completed the 28 day challenge.");
+      $(".startOver").append("<button id='nextMonth'>Start Over</button>");
+    } else {
+      return counter;
+    }
+    
   };
 
 // Define what happens when the user clicks the start again button, create a loop and .remove everything in Firebase to start over?

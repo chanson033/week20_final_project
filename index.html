@@ -35,15 +35,20 @@
 			</div>
 		</header>
 
-    <h2>Enter Daily Score</h2>
+    <h2 class = "intro">Enter Daily Score</h2>
+
+    <div class = "startOver">
+    </div>
 
     <!-- date picker -->
-    <p>Date: <input type="text" id="datepicker"></p>
-    <script>
-      $(function() {
-        $( "#datepicker" ).datepicker();
-      });
-    </script>
+    <div class = "dates">
+        <p>Date: <input type="text" id="datepicker"></p>
+        <script>
+          $(function() {
+            $( "#datepicker" ).datepicker();
+          });
+        </script>
+    </div>
 
 		<form class='dailyscore'>
 		<label>Nutrition (0-5)</label>
