@@ -56,7 +56,7 @@ save data
 Notes with David and Kyle Wed night
 push the object to firebase (like chat exercise) on submit
 after the push, call a fuction to update the table with the scores updateScore ();
-function updateScore () {
+function updateScore () { 
     
 }
 
