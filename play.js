@@ -5,8 +5,9 @@ var grandTotal = 0;
 var counter = 0;
 
 
-$(document).ready(function() {
 
+
+$(document).ready(function() {
 
   // Set up a submit handler so that data is passed when the form is submitted
   $("form.dailyscore").submit(function(e) {
@@ -67,12 +68,6 @@ $(document).ready(function() {
       $("form")[0].reset();
       $( "#datepicker").datepicker('setDate', "");
 
-     
-    
-    // count how many days have been submitted
-    addCounter();
-    console.log(counter);
-
    
     // No return used, not passing anything out into another function
     });
@@ -102,14 +97,13 @@ $(document).ready(function() {
           "</td></tr>");
   };
 
-    // call the function
+    // get data from firebase
     myDataRef.on('child_added', function(snapshot) {
         var scores = snapshot.val();
         updateScore(scores.date, scores.nutrition, scores.workout, scores.stretch, scores.supplements, scores.water, scores.other, scores.comment_pts, scores.dailyTotal, scores.comments);
-        // var nodes = snapshot.count();
-         // update grandTotal
          addGrandTotal(scores.dailyTotal);
-        // console.log(nodes);
+         // if more than 28 days/rows, don't display entry form (only working on submit so far)
+        countRows();
     });
   
 
@@ -118,17 +112,16 @@ $(document).ready(function() {
        $(".myTotal").html("Total Points: " + grandTotal); 
   };
 
-  function addCounter () {
-    counter ++;
+  function countRows () {
     var rowCount = $('#scoreboard').children('tbody').children('tr').length;
     console.log(rowCount + " rows");
-    //if the counter is greater than 28, hide the date picker and form, and display <button>Start Over</button> and some explanation text.
+    //if the counter is greater than 28, hide the entry form, and display <button>Start Over</button> and some explanation text.
     if (rowCount > 28) {
       $(".enterScore").hide ();
       $(".intro").html("You've completed the 28 day challenge.");
-      $(".startOver").append("<button id='nextMonth'>Start Over</button>");
-    } else {
-      return counter;
+      $(".startOver").show ();
+    // } else {
+    //   return counter;
     }
     
   };

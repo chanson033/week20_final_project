@@ -143,6 +143,7 @@ table #scoreboard {
 
 #scoreboard td {
     padding: 10px;
+    text-align: center;
 }
 
 #scoreboard tr td:nth-of-type(n + 2) {
@@ -190,4 +191,8 @@ table #scoreboard {
 #scoreboard tr td:nth-of-type(n + 10) {
     background-color: white;
     color: #5DCEE3;
+}
+
+.startOver {
+    display: hide;
 }

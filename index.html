@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" href="css/styles.css">
 
+    <!--icon font of choice -->
+    <!-- <link href="http://styles/MaterialDesignIcons.css" media="all" rel="stylesheet" type="text/css" /> -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- external JS links -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script> 
@@ -40,6 +44,8 @@
     
 
     <div class = "startOver">
+      <button id='nextMonth'>Start Over</button>
+      <br><br>
     </div>
 
    
@@ -115,8 +121,21 @@
 
           <!-- Rows are added to this table with data from firebase -->
           <table id="scoreboard">
-            <thead></thead>
+            <thead>
+              <tr>
+                  <td></td><td>
+                  <!-- icons -->
+                  <i class="fa fa-camera-retro fa-lg"></i></td><td>
+                  <i class="fa fa-cutlery fa-lg"></i></td><td>
+                  <i class="fa fa-camera-retro fa-lg"></i></td><td>
+                  <i class="fa fa-camera-retro fa-lg"></i></td><td>
+                  <i class="fa fa-camera-retro fa-lg"></i></td><td>
+                  <i class="fa fa-camera-retro fa-lg"></i></td><td>
+                  <i class="fa fa-camera-retro fa-lg"></i></td><td>
+              </tr>
+            </thead>
             <tbody>
+
             </tbody>
           </table>
       </div>

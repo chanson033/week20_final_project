@@ -114,3 +114,7 @@ the whole firebase example (in Hmtl but my script will be in js file)
       };
     </script>
   </body>
+
+
+  put start over button in <div> from the beginning and display none CSS
+  then .show the div when over 28 rows
