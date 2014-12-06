@@ -191,6 +191,7 @@ table #scoreboard {
 #scoreboard tr td:nth-of-type(n + 10) {
     background-color: white;
     color: #5DCEE3;
+    text-align: left;
 }
 
 .startOver {
