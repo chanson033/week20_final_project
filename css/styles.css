@@ -197,3 +197,13 @@ table #scoreboard {
 .startOver {
     display: none;
 }
+
+/* -- for spacing btween form element */
+
+label, input {
+    display: block;
+}
+
+label {
+    margin-bottom: 5px;
+}

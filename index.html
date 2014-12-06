@@ -9,7 +9,8 @@
 		
 		<!-- external CSS links -->
 		<link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"><!-- for datepicker -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,700,300italic,700italic' rel='stylesheet' type='text/css'> <!-- for fonts -->
 		<link rel="stylesheet" href="css/styles.css">
 
     <!--icon font of choice -->
@@ -61,7 +62,7 @@
     
         <!-- entry form -->
     		<form class='dailyscore'>
-    		<label>Nutrition (0-5)</label>
+    		<label>Nutrition (0-5)
             <select class='nutrition' type = 'number'>
               <option value=5>5</option>
               <option value=4>4</option>
@@ -69,43 +70,50 @@
               <option value=2>2</option>
               <option value=1>1</option>
               <option value=0>0</option>
-            </select><br>
+            </select>
+        </label>
 
-            <label>Workout (2)</label>
+        <label>Workout (2)
             <select class='workout'>
               <option value=2>Yes</option>
               <option value=0>No</option>
-            </select><br>
+            </select>
+        </label>
 
-            <label>Stretch (2)</label>
+          <label>Stretch (2)
             <select class='stretch'>
               <option value=2>Yes</option>
               <option value=0>No</option>
-            </select><br>
+            </select>
+          </label>
 
-            <label>Supplements (1)</label>
-            <select class='supplements'>
-              <option value=1>Yes</option>
-              <option value=0>No</option>
-            </select><br>
+            <label>Supplements (1)
+                <select class='supplements'>
+                  <option value=1>Yes</option>
+                  <option value=0>No</option>
+                </select>
+            </label>
 
-            <label>Water (1)</label>
+            <label>Water (1)
             <select class='water'>
               <option value=1>Yes</option>
               <option value=0>No</option>
-            </select><br>
+              </select>
+            </label>
 
-            <label>Other (1)</label>
+            <label>Other (1)
             <select class='other'>
               <option value=1>Yes</option>
               <option value=0>No</option>
-            </select><br>
+            </select>
+            </label>
 
-            <label>Comments (1)</label>
-            <input type="text" maxlength="100" class='comments'>
-            </input><br>
+            <label>Comments (1)
+              <input type="text" maxlength="100" class='comments'>
+              </input>
+            </label>
 
-
+            <br>
             <input type='submit'>
           </form>
       
