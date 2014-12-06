@@ -68,8 +68,17 @@ $(document).ready(function() {
       $("form")[0].reset();
       $( "#datepicker").datepicker('setDate', "");
 
-   
+     
     // No return used, not passing anything out into another function
+    });
+
+    // What I would do next: Define what happens when the user clicks the start again button, remove everything in Firebase to start over
+    $("#nextMonth").click(function() {
+      myDataRef.remove();
+      location.reload();
+      // $(".enterScore").show();
+      // $(".intro").html("Enter Daily Score");
+      // $(".startOver").hide ();
     });
   });
 
@@ -124,6 +133,7 @@ $(document).ready(function() {
     
   };
 
-// What I would do next: Define what happens when the user clicks the start again button, remove everything in Firebase to start over
+
+
 
 // works from an iphone, go to http://chanson033.github.io/week20_final_project/
