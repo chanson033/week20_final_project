@@ -125,3 +125,5 @@ $(document).ready(function() {
   };
 
 // What I would do next: Define what happens when the user clicks the start again button, remove everything in Firebase to start over
+
+// works from an iphone, go to http://chanson033.github.io/week20_final_project/
