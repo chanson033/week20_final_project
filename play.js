@@ -127,3 +127,4 @@ $(document).ready(function() {
   };
 
 // Define what happens when the user clicks the start again button, create a loop and .remove everything in Firebase to start over
+// testing git
