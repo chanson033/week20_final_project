@@ -2,7 +2,8 @@
 
 var myDataRef = new Firebase("https://fiery-inferno-6944.firebaseIO.com/");
 var grandTotal = 0;
-var counter = 0;
+var rowCount;
+var dailyAverage;
 
 
 
@@ -51,35 +52,32 @@ $(document).ready(function() {
       //console.log(dailyTotal);
 
       
-      myDataRef.push({
-        date: date, 
-        nutrition: nutrition, 
-        workout: workout,
-        stretch: stretch, 
-        supplements: supplements,
-        water: water, 
-        other: other, 
-        comments: comments,
-        comment_pts: comment_pts,
-        dailyTotal: dailyTotal
-      });
+        myDataRef.push({
+          date: date, 
+          nutrition: nutrition, 
+          workout: workout,
+          stretch: stretch, 
+          supplements: supplements,
+          water: water, 
+          other: other, 
+          comments: comments,
+          comment_pts: comment_pts,
+          dailyTotal: dailyTotal
+        });
 
-      // reset the form without using return
-      $("form")[0].reset();
-      $( "#datepicker").datepicker('setDate', "");
+        // reset the form without using return
+        $("form")[0].reset();
+        $( "#datepicker").datepicker('setDate', "");
 
      
     // No return used, not passing anything out into another function
     });
 
-    // What I would do next: Define what happens when the user clicks the start again button, remove everything in Firebase to start over
-    $("#nextMonth").click(function() {
-      myDataRef.remove();
-      location.reload();
-      // $(".enterScore").show();
-      // $(".intro").html("Enter Daily Score");
-      // $(".startOver").hide ();
-    });
+        // When user clicks start over button, delete everything in Firebase
+          $("#nextMonth").click(function() {
+            myDataRef.remove();
+            location.reload();
+          });
   });
 
 
@@ -112,28 +110,37 @@ $(document).ready(function() {
         updateScore(scores.date, scores.nutrition, scores.workout, scores.stretch, scores.supplements, scores.water, scores.other, scores.comment_pts, scores.dailyTotal, scores.comments);
          addGrandTotal(scores.dailyTotal);
         countRows();
+        dailyAverage(grandTotal, rowCount);
     });
   
 
   function addGrandTotal (dailyTotal) {
        grandTotal += dailyTotal;
        $(".myTotal").html("Total Points: " + grandTotal); 
+       console.log (grandTotal);
+       return grandTotal;
+
   };
 
 
   function countRows () {
-    var rowCount = $('#scoreboard').children('tbody').children('tr').length;
-    console.log(rowCount + " rows");
-    //if the rowcount is greater than 28, hide the entry form, and display <button>Start Over</button> and some explanation text.
-    if (rowCount > 28) {
-      $(".enterScore").hide ();
-      $(".intro").html("You've completed the 28 day challenge.");
-      $(".startOver").show ();
-    }
-    
+      rowCount = $('#scoreboard').children('tbody').children('tr').length;
+      console.log(rowCount + " rows");
+      //if the rowcount is greater than 28, hide the entry form, and display <button>Start Over</button> and some explanation text.
+      if (rowCount > 28) {
+        $(".enterScore").hide ();
+        $(".intro").html("You've completed the 28 day challenge.");
+        $(".startOver").show ();
+      }
+        console.log(rowCount);
+        return rowCount;
   };
 
-
+ function dailyAverage (grandTotal, rowCount) {
+      dailyAverage = parseFloat(grandTotal/rowCount, 2);
+      $(".dailyTotal").html( "Daily Average: " + dailyAverage); 
+      console.log(dailyAverage);
+ };
 
 
 // works from an iphone, go to http://chanson033.github.io/week20_final_project/
