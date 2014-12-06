@@ -102,7 +102,6 @@ $(document).ready(function() {
         var scores = snapshot.val();
         updateScore(scores.date, scores.nutrition, scores.workout, scores.stretch, scores.supplements, scores.water, scores.other, scores.comment_pts, scores.dailyTotal, scores.comments);
          addGrandTotal(scores.dailyTotal);
-         // if more than 28 days/rows, don't display entry form (only working on submit so far)
         countRows();
     });
   
@@ -112,19 +111,17 @@ $(document).ready(function() {
        $(".myTotal").html("Total Points: " + grandTotal); 
   };
 
+
   function countRows () {
     var rowCount = $('#scoreboard').children('tbody').children('tr').length;
     console.log(rowCount + " rows");
-    //if the counter is greater than 28, hide the entry form, and display <button>Start Over</button> and some explanation text.
+    //if the rowcount is greater than 28, hide the entry form, and display <button>Start Over</button> and some explanation text.
     if (rowCount > 28) {
       $(".enterScore").hide ();
       $(".intro").html("You've completed the 28 day challenge.");
       $(".startOver").show ();
-    // } else {
-    //   return counter;
     }
     
   };
 
-// Define what happens when the user clicks the start again button, create a loop and .remove everything in Firebase to start over
-// testing git
+// What I would do next: Define what happens when the user clicks the start again button, remove everything in Firebase to start over
