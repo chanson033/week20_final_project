@@ -124,8 +124,7 @@ $(document).ready(function() {
     console.log(rowCount + " rows");
     //if the counter is greater than 28, hide the date picker and form, and display <button>Start Over</button> and some explanation text.
     if (rowCount > 28) {
-      $(".dailyscore").hide ();
-      $( ".dates").hide ();
+      $(".enterScore").hide ();
       $(".intro").html("You've completed the 28 day challenge.");
       $(".startOver").append("<button id='nextMonth'>Start Over</button>");
     } else {

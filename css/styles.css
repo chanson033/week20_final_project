@@ -101,7 +101,7 @@ h2 {
 
 
 
-header nav a {
+.header nav a {
      display: inline-block;
      font-size: 12px;
      margin-right: 2px;
@@ -111,12 +111,12 @@ header nav a {
      border-radius: 10px;
 }
 
-header nav a:link {
+.header nav a:link {
      color: #FFF;
      padding: 5px 10px;
 }
 
-header nav a:hover {
+.header nav a:hover {
      color: #999;
      border-bottom-color: #BBB;
 }

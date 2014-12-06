@@ -2,16 +2,17 @@
 <html lang="en">
 	<head>
     	<meta charset="utf-8">
-    	<meta name="description" content="Your description goes here">
-    	<meta name="keywords" content="one, two, three">
+    	<meta name="28 day health tracker" content="28 day follow-up to an online game I played">
+    	<meta name="keywords" content="one, two, three"> <!-- not yet -->
 	
 		<title>Enter Daily Play</title>
 		
-		<!-- external CSS link -->
+		<!-- external CSS links -->
 		<link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" href="css/styles.css">
 
+    <!-- external JS links -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script> 
 
@@ -23,92 +24,102 @@
 
 	</head>
 	<body>
-		<header>
-			<div>
+		<div class = "header">
 				<h1>28 Day Whole Life Challenge</h1>
 
-					<!-- hiding this complexity at first 
+					<!-- hiding this nav, keeping it simple with one page at first
           <nav>
 							<a href="index.html">Enter Daily Score</a>
 							<a href="scoreboard.html">Scoreboard</a>
-					</nav>-->
-			</div>
-		</header>
+					</nav> -->
 
-    <h2 class = "intro">Enter Daily Score</h2>
+        <h2 class = "intro">Enter Daily Score</h2>
+
+		</div>
+
+    
 
     <div class = "startOver">
     </div>
 
-    <!-- date picker -->
-    <div class = "dates">
+   
+    <div class = "enterScore">
+
+       <!-- date picker -->
         <p>Date: <input type="text" id="datepicker"></p>
         <script>
           $(function() {
             $( "#datepicker" ).datepicker();
           });
         </script>
-    </div>
-
-		<form class='dailyscore'>
-		<label>Nutrition (0-5)</label>
-        <select class='nutrition' type = 'number'>
-          <option value=5>5</option>
-          <option value=4>4</option>
-          <option value=3>3</option>
-          <option value=2>2</option>
-          <option value=1>1</option>
-          <option value=0>0</option>
-        </select><br>
-
-        <label>Workout (2)</label>
-        <select class='workout'>
-          <option value=2>Yes</option>
-          <option value=0>No</option>
-        </select><br>
-
-        <label>Stretch (2)</label>
-        <select class='stretch'>
-          <option value=2>Yes</option>
-          <option value=0>No</option>
-        </select><br>
-
-        <label>Supplements (1)</label>
-        <select class='supplements'>
-          <option value=1>Yes</option>
-          <option value=0>No</option>
-        </select><br>
-
-        <label>Water (1)</label>
-        <select class='water'>
-          <option value=1>Yes</option>
-          <option value=0>No</option>
-        </select><br>
-
-        <label>Other (1)</label>
-        <select class='other'>
-          <option value=1>Yes</option>
-          <option value=0>No</option>
-        </select><br>
-
-        <label>Comments (1)</label>
-        <input type="text" maxlength="100" class='comments'>
-        </input><br>
-
-
-        <input type='submit'>
-      </form>
-      <br><br>
-
-      <h2>Scoreboard</h2>
-
-    <h1 class="myTotal">Total points:</h1>
-    <table id="scoreboard">
-      <thead></thead>
-      <tbody>
     
-      </tbody>
-    </table>
+        <!-- entry form -->
+    		<form class='dailyscore'>
+    		<label>Nutrition (0-5)</label>
+            <select class='nutrition' type = 'number'>
+              <option value=5>5</option>
+              <option value=4>4</option>
+              <option value=3>3</option>
+              <option value=2>2</option>
+              <option value=1>1</option>
+              <option value=0>0</option>
+            </select><br>
+
+            <label>Workout (2)</label>
+            <select class='workout'>
+              <option value=2>Yes</option>
+              <option value=0>No</option>
+            </select><br>
+
+            <label>Stretch (2)</label>
+            <select class='stretch'>
+              <option value=2>Yes</option>
+              <option value=0>No</option>
+            </select><br>
+
+            <label>Supplements (1)</label>
+            <select class='supplements'>
+              <option value=1>Yes</option>
+              <option value=0>No</option>
+            </select><br>
+
+            <label>Water (1)</label>
+            <select class='water'>
+              <option value=1>Yes</option>
+              <option value=0>No</option>
+            </select><br>
+
+            <label>Other (1)</label>
+            <select class='other'>
+              <option value=1>Yes</option>
+              <option value=0>No</option>
+            </select><br>
+
+            <label>Comments (1)</label>
+            <input type="text" maxlength="100" class='comments'>
+            </input><br>
+
+
+            <input type='submit'>
+          </form>
+      
+          <br><br>
+
+      </div>
+
+      <div class= "myScores">
+
+          <h2>Scoreboard</h2>
+
+          <h1 class="myTotal">Total points:</h1>
+
+          <!-- Rows are added to this table with data from firebase -->
+          <table id="scoreboard">
+            <thead></thead>
+            <tbody>
+            </tbody>
+          </table>
+      </div>
 
 	</body>
 </html>
