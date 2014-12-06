@@ -194,5 +194,5 @@ table #scoreboard {
 }
 
 .startOver {
-    display: hide;
+    display: none;
 }
