@@ -137,7 +137,7 @@ $(document).ready(function() {
   };
 
  function dailyAverage (grandTotal, rowCount) {
-      dailyAverage = parseFloat(grandTotal/rowCount, 2);
+      dailyAverage = parseFloat(grandTotal/rowCount).toFixed(2);
       $(".dailyTotal").html( "Daily Average: " + dailyAverage); 
       console.log(dailyAverage);
  };
