@@ -104,43 +104,41 @@ $(document).ready(function() {
           "</td></tr>");
   };
 
-    // get data from firebase
+ // get data from firebase
     myDataRef.on('child_added', function(snapshot) {
         var scores = snapshot.val();
         updateScore(scores.date, scores.nutrition, scores.workout, scores.stretch, scores.supplements, scores.water, scores.other, scores.comment_pts, scores.dailyTotal, scores.comments);
-         addGrandTotal(scores.dailyTotal);
+        addGrandTotal(scores.dailyTotal);
         countRows();
-        dailyAverage(grandTotal, rowCount);
+        calcDailyAverage(grandTotal, rowCount);
     });
-  
+
 
   function addGrandTotal (dailyTotal) {
        grandTotal += dailyTotal;
        $(".myTotal").html("Total Points: " + grandTotal); 
-       console.log (grandTotal);
+       console.log (grandTotal + " grandTotal");
        return grandTotal;
 
   };
 
-
   function countRows () {
       rowCount = $('#scoreboard').children('tbody').children('tr').length;
-      console.log(rowCount + " rows");
+      // console.log(rowCount + " rows");
       //if the rowcount is greater than 28, hide the entry form, and display <button>Start Over</button> and some explanation text.
       if (rowCount > 28) {
         $(".enterScore").hide ();
         $(".intro").html("You've completed the 28 day challenge.");
         $(".startOver").show ();
       }
-        console.log(rowCount);
+        console.log(rowCount + " rowCount");
         return rowCount;
   };
 
- function dailyAverage (grandTotal, rowCount) {
+ function calcDailyAverage(grandTotal, rowCount) {
       dailyAverage = parseFloat(grandTotal/rowCount).toFixed(2);
-      $(".dailyTotal").html( "Daily Average: " + dailyAverage); 
-      console.log(dailyAverage);
+      $(".dailyAverage").html( "daily average: " + dailyAverage); 
+      console.log(dailyAverage + " dailyAverage");
  };
-
 
 // works from an iphone, go to http://chanson033.github.io/week20_final_project/
